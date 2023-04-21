@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ucolab.api.model.mapper.AccountMapper">
+    <resultMap id="baseResultMap" type="com.ucolab.api.model.doo.AccountDOO">
+        <id column="account_id" property="accountId" jdbcType="BIGINT"/>
+        <result column="routing_number" property="routingNumber" jdbcType="VARCHAR"/>
+        <result column="account_number" property="accountNumber" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="get" parameterType="int" resultMap="baseResultMap">
+        SELECT * FROM account WHERE account_id = #{accountId,jdbcType=BIGINT}
+    </select>
+</mapper>
